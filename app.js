@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 
 const userRouter = require('./routes/userRoutes');
+const productRouter = require('./routes/productRoutes');
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // ROUTES
 app.use('/api/v1/users', userRouter);
+app.use('/api/v1/products', productRouter);
 
 // Handle all unhandled routes
 app.all('*', (req, res, next) => {
