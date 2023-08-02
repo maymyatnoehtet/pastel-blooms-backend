@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors');
 
 const userRouter = require('./routes/userRoutes');
 const productRouter = require('./routes/productRoutes');
@@ -10,6 +11,9 @@ const app = express();
 if (process.env.NODE_ENV == 'development') {
   app.use(morgan('dev'));
 }
+
+// Security
+app.use(cors());
 
 // Body Parser
 app.use(express.json());
